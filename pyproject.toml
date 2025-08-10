@@ -1,0 +1,13 @@
+[project]
+name = "src"
+version = "0.1.0"
+description = "Build the simple application into Docker image and deploy to Docker Hub with a CI/CD pipeline in GitHub Actions"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.116.1",
+    "pydantic>=2.11.7",
+    "ruff>=0.12.7",
+    "tool>=0.8.0",
+    "uvicorn>=0.35.0",
+]
