@@ -4,3 +4,7 @@ README.md
 LICENSE
 Dockerfile
 .gitignore
+.github
+.ruff_cache
+.git
+.dockerignore
