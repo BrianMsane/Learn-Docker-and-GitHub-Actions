@@ -1,18 +1,14 @@
 name: Testing some docker hub deployment
 
-# The workflow runs when we have a push on the main branch and we can execute it manually if needed
 on:
   push:
     branches:
       - dev
       - main
       - "!features/*"
-    # branches-ignore:
-    #   - features/*
-    #   - test/**
 
   pull_request:
-    branches: dev
+    branches: [dev]
     types:
       - opened
       - closed

@@ -1,7 +1,7 @@
 # Build Stage
 FROM astral/uv:python3.12-bookworm-slim AS builder
 WORKDIR /app
-COPY pyproject.toml uv.lock /app/
+COPY pyproject.toml /app/
 RUN uv sync --frozen --no-dev
 
 # Deployment Stage
