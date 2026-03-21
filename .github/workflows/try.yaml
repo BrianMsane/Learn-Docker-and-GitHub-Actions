@@ -1,34 +1,25 @@
 name: Testing some docker hub deployment
 description: Running a CI/CD workflow
 
-# The workflow runs when we have a push on the main branch and we can execute it manually if needed
 on:
   push:
     branches: main
   workflow_dispatch:
 
-# env: # define environment (use this approach for none sensitive ones), done at step-, job-, and workflow-level
-#   CONTAINER_REGISTRY: docker.io
-#   DOCKER_USERNAME: userName
-#   IMAGE_NAME: containerName
-
-# cancel old, running workflows when a new one with a high priority comes
-# this is done because we want to reduce the number of deployments we make (sometimes reducing costs and GitHub actions minutes)
 concurrency:
   group: CI/CD
   cancel-in-progress: true
 
 jobs:
   build:
-    # use different operating system to run the build job
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
-      - uses: actions/checkout@v4 # Copy the entire directory into the runner
-      - uses: actions/setup-python@v3 # set up python environment with version 3.12. This should be done only when there is a need for python or whatever language we setup
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v3
         with:
           python-version: 3.12
 
